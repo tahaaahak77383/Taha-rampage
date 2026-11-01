@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قیصری | بسکتبال و هوش مصنوعی</title>
+    <!-- استفاده از فونت فارسی Vazirmatn -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #ff7e5f;
+            --purple-light: #a18cd1;
+            --purple-deep: #6a4c93;
+            --bg-soft: #fdfbfd;
+            --text-dark: #2d2d2d;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #fdfbfd 0%, #f3eef8 100%);
+            color: var(--text-dark);
+            line-height: 1.8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* هدر / بخش معرفی */
+        .hero {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--orange), var(--purple-deep));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #5a5a5a;
+            font-weight: 300;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* کارت‌های شبکه‌های اجتماعی */
+        .social-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--white);
+            padding: 1.25rem 1.8rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(106, 76, 147, 0.08);
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(161, 140, 209, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--orange), var(--purple-light));
+            transition: width 0.3s ease;
+        }
+
+        .social-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(106, 76, 147, 0.15);
+            border-color: rgba(255, 126, 95, 0.3);
+        }
+
+        .social-card:hover::before {
+            width: 10px;
+        }
+
+        .card-content {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex: 1;
+        }
+
+        .icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+
+        .icon-telegram {
+            background: linear-gradient(135deg, #e8f0fe, #d4e2fc);
+            color: #2a9df4;
+        }
+
+        .icon-instagram {
+            background: linear-gradient(135deg, #fce4ec, #f8d7da);
+            color: #d63384;
+        }
+
+        .card-text h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .card-text span {
+            font-size: 0.85rem;
+            color: #888;
+            font-weight: 300;
+        }
+
+        .arrow {
+            font-size: 1.4rem;
+            color: var(--purple-light);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-card:hover .arrow {
+            transform: translateX(-6px);
+            color: var(--orange);
+        }
+
+        /* فوتر */
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(161, 140, 209, 0.2);
+            font-size: 0.85rem;
+            color: #9a9a9a;
+            font-weight: 300;
+        }
+
+        .footer strong {
+            font-weight: 500;
+            color: var(--purple-deep);
+        }
+
+        /* واکنش‌گرا برای موبایل */
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
+            .social-card { padding: 1rem 1.2rem; }
+            .icon-box { width: 44px; height: 44px; font-size: 1.3rem; }
+            .card-text h3 { font-size: 1rem; }
+            .arrow { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- هدر: معرفی شخصی و موضوع -->
+        <header class="hero">
+            <h1>قیصری | مدرس هوش مصنوعی</h1>
+            <p>اینجا دنیای بسکتبال و فناوری است. اخبار، تحلیل‌ها و نکات آموزشی را در کانال‌های من دنبال کنید.</p>
+        </header>
+
+        <!-- بخش لینک‌های شبکه‌های اجتماعی -->
+        <main class="social-grid">
+            <!-- کارت تلگرام -->
+            <a href="https://t.me/your_telegram_id" target="_blank" rel="noopener" class="social-card">
+                <div class="card-content">
+                    <div class="icon-box icon-telegram">
+                        <!-- آیکون ساده تلگرام (به صورت متن/ایموجی جایگزین شده) -->
+                        ✈️
+                    </div>
+                    <div class="card-text">
+                        <h3>کانال تلگرام</h3>
+                        <span>اخبار و تحلیل‌های بسکتبال</span>
+                    </div>
+                </div>
+                <div class="arrow">←</div>
+            </a>
+
+            <!-- کارت اینستاگرام -->
+            <a href="https://instagram.com/your_instagram_id" target="_blank" rel="noopener" class="social-card">
+                <div class="card-content">
+                    <div class="icon-box icon-instagram">
+                        📸
+                    </div>
+                    <div class="card-text">
+                        <h3>صفحه اینستاگرام</h3>
+                        <span>محتوای بصری بسکتبال</span>
+                    </div>
+                </div>
+                <div class="arrow">←</div>
+            </a>
+        </main>
+
+        <!-- فوتر -->
+        <footer class="footer">
+            ساخته شده با <strong>علاقه به بسکتبال</strong> و هوش مصنوعی
+        </footer>
+    </div>
+
+</body>
+</html>
